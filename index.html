@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col text-center">
                     <img src="img/fondo y corazon juntos.png" id="c-img" class="img-fluid" alt="portada">
-                    <a id="button-intro" class="btn btn-outline-danger" onclick="continuar()" onmousedown="play()"  href="#" role="button">INGRESAR</a>
+                    <a id="button-intro" class="btn btn-outline-danger" onclick="continuar()"   href="#" role="button">INGRESAR</a>
                 </div>
             </div>
         </div>
@@ -281,9 +281,7 @@
                 <div class="row ">
                     <div class="col-9">
                         <h3  id="texto-video-1" class="text-center fw-bold py-3 my-5 display-4 text-shadow text-light">Quién sabe todo lo que nos espera...</h3>
-                        <button id="button-video-1" onclick="playPause()" onmousedown="stop()" class="btn btn-dark ms-5" role="button">Play/Pause video</button>
-                        <img src="img/play.png" id="" class="" width="25" alt="...">
-                        <video id="video" class="mb-5 ms-5">
+                        <video id="video" controls class="mb-5 ms-5"  onmouseover="pauseMusic()">
                             <source src="video/video.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                         </video>
@@ -296,7 +294,7 @@
                 <br/>
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                    <button id="button-video-3" onclick="play()" class="btn btn-dark" role="button">¡Musica ON!</button>
+                    <button id="button-video-1" onclick="playPause()" class="btn btn-warning w-10 font-weight-bolder rounded-pill" role="button">Activar Música</button>
                     </div>
                 </div>  
             </div>
@@ -316,7 +314,7 @@
         <!--END-->
         <div id="end" class="py-5">
             <div class="container-md">
-                <h1 id="end-text" class="display-1 py-5 text-shadow text-center">Te amo, Sol</h1>
+                <h1 id="end-text" class="display-1 py-5 text-shadow text-center">Feliz día Sol,<br/> te amo</h1>
                 <h1 id="end-text-firma" class="display-1 text-shadow text-end text-decoration-underline">Pablo</h1>
             </div>
         </div>
