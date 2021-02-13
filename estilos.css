@@ -52,6 +52,7 @@ html, body {
     background: url(img/rosado.jpg) no-repeat;
     background-size: cover;
     position: absolute;
+    display: none;
 }
 
 #c-img {
