@@ -20,6 +20,9 @@ function continuar() {
     contenerDos.style.display = 'block';
 
     audio.play();
+
+    var videoLoad = document.getElementById('video');
+    videoLoad.setAttribute('preload', '');
 }
 
 function playPause() {
@@ -33,19 +36,3 @@ function pauseMusic() {
     audio.pause();
     audio.currentTime = 0;
 }
-
-
-var r = new XMLHttpRequest();
-r.onload = function() {
-    video.src = URL.createObjectURL(r.response);
-    video.play();
-};
-if (video.canPlayType('video/mp4;codecs="avc1.42E01E, mp4a.40.2"')) {
-    r.open("GET", "slide.mp4");
-}
-else {
-    r.open("GET", "slide.webm");
-}
-
-r.responseType = "blob";
-r.send();
