@@ -33,23 +33,19 @@ function pauseMusic() {
     audio.pause();
     audio.currentTime = 0;
 }
-var req = new XMLHttpRequest();
-req.open('GET', 'video.mp4', true);
-req.responseType = 'blob';
 
-req.onload = function() {
-   // Onload is triggered even on 404
-   // so we need to check the status code
-   if (this.status === 200) {
-      var videoBlob = this.response;
-      var vid = URL.createObjectURL(videoBlob); // IE10+
-      // Video is now downloaded
-      // and we can set it as source on the video element
-      video.src = vid;
-   }
+
+var r = new XMLHttpRequest();
+r.onload = function() {
+    video.src = URL.createObjectURL(r.response);
+    video.play();
+};
+if (video.canPlayType('video/mp4;codecs="avc1.42E01E, mp4a.40.2"')) {
+    r.open("GET", "slide.mp4");
 }
-req.onerror = function() {
-   // Error
+else {
+    r.open("GET", "slide.webm");
 }
 
-req.send();
+r.responseType = "blob";
+r.send();
