@@ -40,11 +40,11 @@ function pauseMusic() {
 
 var r = new XMLHttpRequest();
 r.onload = function() {
-    video/video.mp4.src = URL.createObjectURL(r.response);
-    video/video.mp4.play();
+    myVid.src = URL.createObjectURL(r.response);
+    myVid.play();
 };
-if (video/video.mp4.canPlayType('video/video/mp4;codecs="avc1.42E01E, mp4a.40.2"')) {
-    r.open("GET", "slide.mp4");
+if (myVid.canPlayType('video/mp4;codecs="avc1.42E01E, mp4a.40.2"')) {
+    r.open("GET", "video/video.mp4");
 }
 else {
     r.open("GET", "slide.webm");
