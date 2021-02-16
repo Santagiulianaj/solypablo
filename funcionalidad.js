@@ -37,13 +37,15 @@ function pauseMusic() {
 }
 
 /* preload video */
-video.onloadeddata = function(){
-    video.onseeked = function(){
-      if(video.seekable.end(0) >= video.duration-0.1){
+
+var videoo = document.getElementById('video');
+videoo.onloadeddata = function(){
+    videoo.onseeked = function(){
+      if(videoo.seekable.end(0) >= videoo.duration-0.1){
         alert("Video is all loaded!");
       } else {
-        video.currentTime=video.buffered.end(0); // Seek ahead to force more buffering
+        videoo.currentTime=videoo.buffered.end(0); // Seek ahead to force more buffering
       }
     };
-    video.currentTime=0; // first seek to trigger the event
+    videoo.currentTime=0; // first seek to trigger the event
   };
