@@ -21,8 +21,6 @@ function continuar() {
 
     audio.play();
 
-    var videoLoad = document.getElementById('video');
-    videoLoad.setAttribute('preload', '');
 }
 
 function playPause() {
@@ -37,8 +35,9 @@ function pauseMusic() {
     audio.currentTime = 0;
 }
 
+/* preload video */
 var xhrReq = new XMLHttpRequest();
-xhrReq.open('GET', 'yourVideoSrc', true);
+xhrReq.open('GET', 'video/video.mp4', true);
 xhrReq.responseType = 'blob';
 
 xhrReq.onload = function() {
