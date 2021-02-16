@@ -38,14 +38,17 @@ function pauseMusic() {
 
 /* preload video */
 
-var videoo = document.getElementById('video');
-videoo.onloadeddata = function(){
-    videoo.onseeked = function(){
-      if(videoo.seekable.end(0) >= videoo.duration-0.1){
-        alert("Video is all loaded!");
-      } else {
-        videoo.currentTime=videoo.buffered.end(0); // Seek ahead to force more buffering
-      }
-    };
-    videoo.currentTime=0; // first seek to trigger the event
-  };
+var r = new XMLHttpRequest();
+r.onload = function() {
+    myVid.src = URL.createObjectURL(r.response);
+    myVid.play();
+};
+if (myVid.canPlayType('video/video/mp4;codecs="avc1.42E01E, mp4a.40.2"')) {
+    r.open("GET", "slide.mp4");
+}
+else {
+    r.open("GET", "slide.webm");
+}
+
+r.responseType = "blob";
+r.send();
