@@ -39,7 +39,7 @@ function pauseMusic() {
 /* preload video */
 
 var req = new XMLHttpRequest();
-req.open('GET', 'video/video.mp4', true);
+req.open('GET', 'video.mp4', true);
 req.responseType = 'blob';
 
 req.onload = function() {
