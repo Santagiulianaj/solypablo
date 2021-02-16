@@ -1,4 +1,4 @@
-window.onload = function(){
+window.onload = function() {
     var contenedor = document.getElementById('contenedor_carga');
 
     contenedor.style.visibility = 'hidden';
@@ -36,3 +36,24 @@ function pauseMusic() {
     audio.pause();
     audio.currentTime = 0;
 }
+
+var xhrReq = new XMLHttpRequest();
+xhrReq.open('GET', 'yourVideoSrc', true);
+xhrReq.responseType = 'blob';
+
+xhrReq.onload = function() {
+    if (this.status === 200) {
+        var vid = URL.createObjectURL(this.response);
+        video.src = vid;
+    }
+}
+xhrReq.onerror = function() {
+    console.log('err' ,arguments);
+}
+xhrReq.onprogress = function(e){
+    if(e.lengthComputable) {
+        var percentComplete = ((e.loaded/e.total)*100|0) + '%';
+        console.log('progress: ', percentComplete);
+    }
+}
+xhrReq.send();
